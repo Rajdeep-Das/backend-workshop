@@ -3,7 +3,7 @@ from markupsafe import escape
 from flask import render_template
 
 # Create app instance 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 
 @app.route('/')
@@ -27,8 +27,12 @@ def say_hello_to_id(id):
 
 # make a simple website
 @app.route('/projects')
-def projects(name=None):
-  return render_template('projects.html',name=name)
+def projectsroot(projectname=None):
+  return render_template('projects.html',projectname=projectname)
+
+@app.route('/projects/<projectname>')
+def projects(projectname):
+  return render_template('projects.html',projectname=projectname)
 
 @app.route('/about')
 def about():

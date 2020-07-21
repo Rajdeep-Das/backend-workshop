@@ -6,11 +6,17 @@
     <title>Projects </title>
 </head>
 <body>
+   {% if projectname %}
+    <h1 style="color: blue;">Hello {{ projectname }}</h1>
     <h1>Project Page</h1>
     <ul>
         <li>Project 1</li>
         <li>Project 2</li>
         <li>Project 3</li>
     </ul>
+   {% else %}
+    <h1>Hello, World!</h1>
+   {% endif %}
+ 
 </body>
 </html>
